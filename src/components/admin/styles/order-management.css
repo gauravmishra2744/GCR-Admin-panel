@@ -1,0 +1,146 @@
+.order-management {
+  animation: fadeIn 0.3s ease;
+}
+
+.table-card {
+  background: var(--background-primary);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.search-input {
+  min-width: 250px;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  width: 300px;
+}
+
+.date-picker {
+  min-width: 250px;
+}
+
+.orders-table {
+  margin-top: 16px;
+}
+
+.orders-table .ant-table {
+  background: var(--background-primary);
+}
+
+.orders-table .ant-table-thead > tr > th {
+  background: var(--background-secondary);
+  color: var(--text-primary);
+}
+
+.action-buttons .view-button:hover {
+  color: var(--primary-color);
+  background: var(--hover-color);
+}
+
+.action-buttons .print-button:hover {
+  color: var(--primary-color);
+  background: var(--hover-color);
+}
+
+.status-select {
+  background: var(--background-secondary);
+}
+
+/* Drawer styles */
+.order-drawer .ant-drawer-content {
+  background: var(--background-primary);
+}
+
+.order-drawer .ant-drawer-header {
+  background: var(--background-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.order-drawer .ant-drawer-title {
+  color: var(--text-primary);
+}
+
+.items-card,
+.timeline-card {
+  margin-top: 24px;
+  background: var(--background-secondary);
+}
+
+.items-card .ant-card-head,
+.timeline-card .ant-card-head {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.order-summary {
+  margin: 24px 0;
+  padding: 16px;
+  background: var(--background-secondary);
+  border-radius: var(--border-radius);
+  text-align: right;
+}
+
+.ant-descriptions {
+  background: var(--background-secondary);
+  border-radius: var(--border-radius);
+}
+
+.ant-descriptions-item-label {
+  color: var(--text-secondary);
+}
+
+.ant-descriptions-item-content {
+  color: var(--text-primary);
+}
+
+/* Timeline customization */
+.ant-timeline-item-content {
+  color: var(--text-primary);
+}
+
+.ant-timeline-item-tail {
+  border-left-color: var(--border-color);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .table-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-input,
+  .date-picker {
+    width: 100%;
+    min-width: unset;
+  }
+  
+  .ant-space {
+    width: 100%;
+  }
+  
+  .ant-drawer {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .action-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .status-select {
+    width: 100% !important;
+  }
+}
