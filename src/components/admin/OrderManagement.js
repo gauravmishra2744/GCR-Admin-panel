@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Table, Tag, Space, Button, Modal, 
-  Card, Typography, Descriptions, message 
+import {
+  Table, Tag, Space, Button, Modal,
+  Card, Typography, Descriptions, message
 } from 'antd';
 import { PrinterOutlined, DownloadOutlined } from '@ant-design/icons';
 
@@ -12,6 +12,7 @@ const OrderManagement = () => {
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [detailsVisible, setDetailsVisible] = useState(false);
 
+  // Sample order data
   useEffect(() => {
     setOrders([
       {
@@ -44,7 +45,7 @@ const OrderManagement = () => {
   };
 
   const handleStatusChange = (orderId, newStatus) => {
-    setOrders(prevOrders => 
+    setOrders(prevOrders =>
       prevOrders.map(order =>
         order.id === orderId ? { ...order, status: newStatus } : order
       )
@@ -65,6 +66,7 @@ const OrderManagement = () => {
       title: 'Order ID',
       dataIndex: 'id',
       key: 'id',
+      fixed: 'left', // Fixed column for responsiveness
     },
     {
       title: 'Customer',
@@ -89,17 +91,17 @@ const OrderManagement = () => {
       render: (status, record) => (
         <Space>
           <Tag color={
-            status === 'completed' ? 'success' :
-            status === 'shipped' ? 'processing' :
-            status === 'pending' ? 'warning' : 'default'
+            status === 'completed' ? 'green' :
+              status === 'shipped' ? 'blue' :
+                status === 'pending' ? 'orange' : 'default'
           }>
             {status.toUpperCase()}
           </Tag>
-          <Button 
+          <Button
             size="small"
-            onClick={() => handleStatusChange(record.id, 
-              status === 'pending' ? 'shipped' : 
-              status === 'shipped' ? 'completed' : 'pending'
+            onClick={() => handleStatusChange(record.id,
+              status === 'pending' ? 'shipped' :
+                status === 'shipped' ? 'completed' : 'pending'
             )}
           >
             Update Status
@@ -111,7 +113,7 @@ const OrderManagement = () => {
       title: 'Actions',
       key: 'actions',
       render: (_, record) => (
-        <Space>
+        <Space size="middle">
           <Button onClick={() => handleViewDetails(record)}>
             View Details
           </Button>
@@ -127,11 +129,22 @@ const OrderManagement = () => {
   ];
 
   return (
-    <Card title={<Title level={2}>Order Management</Title>}>
+    <Card
+      title={<Title level={3}>Order Management</Title>}
+      className="table-card"
+    >
       <Table
         dataSource={orders}
         columns={columns}
         rowKey="id"
+        className="orders-table"
+        scroll={{ x: 900 }} // Enables horizontal scrolling for smaller screens
+        pagination={{
+          responsive: true, // Makes pagination responsive
+          defaultPageSize: 5,
+          showSizeChanger: true,
+          pageSizeOptions: ['5', '10', '20'],
+        }}
       />
       {selectedOrder && (
         <Modal
@@ -149,9 +162,9 @@ const OrderManagement = () => {
             <Descriptions.Item label="Date" span={3}>{selectedOrder.date}</Descriptions.Item>
             <Descriptions.Item label="Status" span={3}>
               <Tag color={
-                selectedOrder.status === 'completed' ? 'success' :
-                selectedOrder.status === 'shipped' ? 'processing' :
-                selectedOrder.status === 'pending' ? 'warning' : 'default'
+                selectedOrder.status === 'completed' ? 'green' :
+                  selectedOrder.status === 'shipped' ? 'blue' :
+                    selectedOrder.status === 'pending' ? 'orange' : 'default'
               }>
                 {selectedOrder.status.toUpperCase()}
               </Tag>

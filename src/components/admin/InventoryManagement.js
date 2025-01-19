@@ -1,10 +1,11 @@
 import React from 'react';
-import { 
-  Table, Card, Tag, Button, Space, 
+import {
+  Table, Card, Tag, Button, Space,
   Modal, Form, InputNumber, Upload,
-  message, Alert 
+  message, Alert
 } from 'antd';
 import { UploadOutlined, WarningOutlined } from '@ant-design/icons';
+import './InventoryManagement.css'; // Link to the new CSS file
 
 const InventoryManagement = () => {
   const [form] = Form.useForm();
@@ -15,6 +16,7 @@ const InventoryManagement = () => {
       title: 'Product Name',
       dataIndex: 'name',
       key: 'name',
+      fixed: 'left', // Ensures column stays visible during horizontal scrolling
     },
     {
       title: 'SKU',
@@ -36,7 +38,7 @@ const InventoryManagement = () => {
     },
     {
       title: 'Status',
-      dataIndex: 'status',
+      dataIndex: 'stock',
       key: 'status',
       render: (stock) => (
         <Tag color={stock > 10 ? 'green' : stock > 0 ? 'orange' : 'red'}>
@@ -76,7 +78,6 @@ const InventoryManagement = () => {
       ),
       onOk: async () => {
         const formValues = await form.validateFields();
-        // Update stock in database/API here
         console.log('Updating stock with values:', formValues);
         message.success('Stock updated successfully');
       },
@@ -95,7 +96,7 @@ const InventoryManagement = () => {
             { title: 'Quantity', dataIndex: 'quantity' },
             { title: 'User', dataIndex: 'user' },
           ]}
-          dataSource={[]}
+          dataSource={[]} // Replace with actual data
           pagination={{ pageSize: 5 }}
         />
       ),
@@ -109,10 +110,10 @@ const InventoryManagement = () => {
 
   return (
     <div className="inventory-management">
-      <Card>
-        <div style={{ marginBottom: 16 }}>
-          <Button 
-            type="primary" 
+      <Card className="inventory-card">
+        <div className="inventory-actions">
+          <Button
+            type="primary"
             onClick={() => setBulkUpdateVisible(true)}
             style={{ marginRight: 8 }}
           >
@@ -134,12 +135,14 @@ const InventoryManagement = () => {
           description="5 products are running low on stock. Please review and update inventory."
           type="warning"
           showIcon
-          style={{ marginBottom: 16 }}
+          className="low-stock-alert"
         />
 
-        <Table 
-          columns={columns} 
-          dataSource={[]}
+        <Table
+          className="inventory-table"
+          columns={columns}
+          dataSource={[]} // Replace with actual data
+          scroll={{ x: 900 }} // Enables horizontal scrolling on smaller screens
           expandable={{
             expandedRowRender: (record) => (
               <p style={{ margin: 0 }}>
@@ -156,7 +159,7 @@ const InventoryManagement = () => {
 
       <Modal
         title="Bulk Stock Update"
-        visible={bulkUpdateVisible}
+        open={bulkUpdateVisible}
         onCancel={() => setBulkUpdateVisible(false)}
         footer={null}
       >

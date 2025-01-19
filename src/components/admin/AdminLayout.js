@@ -116,11 +116,11 @@ const AdminLayout = () => {
           collapsible 
           collapsed={collapsed}
           theme={theme}
-          className="sidebar"
+          className={`sidebar ${collapsed ? 'sidebar-collapsed' : ''}`}
         >
           <div className="logo">
-            <img src="/logo.png" alt="Logo" />
-          </div>
+            <img src="/gcr-logo.png" alt="Logo" />
+          </div> 
           <Menu
             theme={theme}
             mode="inline"

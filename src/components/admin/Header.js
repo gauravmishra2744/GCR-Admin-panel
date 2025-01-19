@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaSearch, FaBell, FaUser } from 'react-icons/fa';
 import './styles/header.css';
-import logo from '../../assets/gcr-logo.png';
+import logo from 'gcr-logo-header.png';
 
 const Header = () => {
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <header className="admin-header">
       <div className="header-left">
-        <img src={logo} alt="GCR Logo" className="logo" />
+        <img src="/gcr-logo-header.png" alt="GCR Logo" className="logo" />
       </div>
       
       <div className="header-center">

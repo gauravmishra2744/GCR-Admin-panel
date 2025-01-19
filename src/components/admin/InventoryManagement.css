@@ -1,0 +1,95 @@
+/* Inventory Management Styles */
+.inventory-management {
+    padding: 20px;
+  }
+  
+  .inventory-card {
+    background: var(--background-primary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .inventory-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    gap: 16px;
+  }
+  
+  .inventory-actions .ant-btn {
+    min-width: 150px;
+  }
+  
+  .low-stock-alert {
+    margin-bottom: 16px;
+  }
+  
+  .inventory-table {
+    overflow-x: auto;
+  }
+  
+  .inventory-table .ant-table {
+    background: var(--background-primary);
+  }
+  
+  .inventory-table .ant-table-thead > tr > th {
+    background: var(--background-secondary);
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+  
+  .inventory-table .ant-table-tbody > tr > td {
+    white-space: nowrap;
+  }
+  
+  .inventory-table .ant-table-thead > tr > th,
+  .inventory-table .ant-table-tbody > tr > td {
+    text-align: center;
+  }
+  
+  .inventory-table .ant-table-expanded-row {
+    background: var(--background-secondary);
+    color: var(--text-secondary);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .inventory-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .inventory-actions .ant-btn {
+      width: 100%;
+    }
+  
+    .low-stock-alert {
+      font-size: 14px;
+    }
+  
+    .ant-table {
+      font-size: 14px;
+    }
+  
+    .inventory-table .ant-table-thead > tr > th,
+    .inventory-table .ant-table-tbody > tr > td {
+      font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .inventory-actions .ant-btn {
+      font-size: 14px;
+    }
+  
+    .inventory-card {
+      padding: 16px;
+    }
+  
+    .inventory-table .ant-table-thead > tr > th,
+    .inventory-table .ant-table-tbody > tr > td {
+      font-size: 12px;
+    }
+  }
+  

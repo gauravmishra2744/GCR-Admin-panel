@@ -1,3 +1,21 @@
+:root {
+  --background-color: #ffffff;
+  --primary-color: #1890ff;
+  --secondary-color: #f0f0f0;
+  --text-color: #333333;
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --border-radius: 8px;
+}
+
+[data-theme='dark'] {
+  --background-color: #1f1f1f;
+  --primary-color: #40a9ff;
+  --secondary-color: #141414;
+  --text-color: #ffffff;
+  --box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Header */
 .admin-header {
   display: flex;
   justify-content: space-between;
@@ -31,92 +49,88 @@
   color: white;
 }
 
+/* Sidebar */
 .logo {
-  height: 32px;
-  margin: 16px 0;
+  height: 80px;
+  margin: 16px 0px;
 }
 
 .logo img {
   height: 100%;
 }
 
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.ant-layout-sider-collapsed .logo img {
+  width: 32px;
 }
 
-.header-right .ant-input-search {
-  margin-right: 16px;
+/* Content */
+.admin-layout .ant-layout-content {
+  margin-left: 200px;
+  padding: 24px;
+  background: var(--background-color);
+  transition: margin-left 0.3s ease;
 }
 
-.admin-layout {
-  min-height: 100vh;
+.ant-layout-sider-collapsed + .ant-layout .ant-layout-content {
+  margin-left: 80px;
 }
 
-.footer-links {
-  margin-bottom: 16px;
+.content-wrapper {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  margin: 20px;
+  box-shadow: var(--box-shadow);
 }
 
-.footer-links a {
-  margin: 0 12px;
-  color: rgba(0,0,0,0.65);
+.page-breadcrumb {
+  margin-bottom: 20px;
 }
 
-.copyright {
-  color: rgba(0,0,0,0.45);
+/* Hover Effects */
+.menu-toggle:hover {
+  background-color: var(--primary-color);
+  color: #fff;
 }
 
-/* Dashboard styles */
-.dashboard .ant-card {
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+.nav-menu .ant-menu-item:hover {
+  background-color: var(--secondary-color);
 }
 
-/* Product Management styles */
-.product-management .ant-upload-picture-card-wrapper {
-  width: 100%;
-}
-
-/* Order Management styles */
-.order-management .ant-steps {
-  margin-bottom: 24px;
-}
-
-/* Inventory Management styles */
-.inventory-management .ant-alert {
-  margin-bottom: 16px;
-}
-
-/* Reports styles */
-.reports .ant-card {
-  margin-bottom: 16px;
+.dashboard .ant-card:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .admin-header {
     padding: 0 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 
   .header-right .ant-input-search {
     display: none;
   }
 
-  .ant-layout-sider {
-    position: absolute;
-    height: 100%;
-    z-index: 999;
-  }
-
-  .ant-layout-content {
-    margin-left: 0;
-  }
-
   .dashboard .ant-row {
     flex-direction: column;
+    gap: 16px;
   }
 
   .dashboard .ant-col {
     width: 100%;
+  }
+
+  .content-wrapper {
+    padding: 12px;
+    margin: 12px;
+  }
+
+  .footer-links {
+    display: none;
   }
 }

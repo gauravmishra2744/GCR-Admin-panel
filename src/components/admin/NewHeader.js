@@ -13,7 +13,7 @@ import {
   UserSwitchOutlined
 } from '@ant-design/icons';
 import './styles/header.css';
-import logo from '../../assets/gcr-logo.png';
+import logo from '../../assets/gcr-logo-header.png';
 
 const { Option } = Select;
 

@@ -98,6 +98,18 @@
   box-shadow: var(--box-shadow);
   backdrop-filter: blur(8px);
   border-right: 1px solid var(--border-color);
+  width: 240px;
+  transition: width 0.3s ease;
+}
+
+.sidebar-collapse{
+  width: 80px;
+}
+
+.sidebar .ant-menu-item{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .nav-menu {

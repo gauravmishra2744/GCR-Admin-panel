@@ -8,28 +8,6 @@
   box-shadow: var(--box-shadow);
 }
 
-.table-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.search-input {
-  min-width: 250px;
-  transition: all 0.3s ease;
-}
-
-.search-input:focus {
-  width: 300px;
-}
-
-.date-picker {
-  min-width: 250px;
-}
-
 .orders-table {
   margin-top: 16px;
 }
@@ -43,14 +21,8 @@
   color: var(--text-primary);
 }
 
-.action-buttons .view-button:hover {
-  color: var(--primary-color);
-  background: var(--hover-color);
-}
-
-.action-buttons .print-button:hover {
-  color: var(--primary-color);
-  background: var(--hover-color);
+.orders-table .ant-table-tbody > tr > td {
+  color: var(--text-secondary);
 }
 
 .status-select {
@@ -67,29 +39,6 @@
   border-bottom: 1px solid var(--border-color);
 }
 
-.order-drawer .ant-drawer-title {
-  color: var(--text-primary);
-}
-
-.items-card,
-.timeline-card {
-  margin-top: 24px;
-  background: var(--background-secondary);
-}
-
-.items-card .ant-card-head,
-.timeline-card .ant-card-head {
-  border-bottom: 1px solid var(--border-color);
-}
-
-.order-summary {
-  margin: 24px 0;
-  padding: 16px;
-  background: var(--background-secondary);
-  border-radius: var(--border-radius);
-  text-align: right;
-}
-
 .ant-descriptions {
   background: var(--background-secondary);
   border-radius: var(--border-radius);
@@ -103,33 +52,29 @@
   color: var(--text-primary);
 }
 
-/* Timeline customization */
-.ant-timeline-item-content {
-  color: var(--text-primary);
-}
-
-.ant-timeline-item-tail {
-  border-left-color: var(--border-color);
-}
-
 /* Responsive styles */
 @media (max-width: 768px) {
-  .table-header {
-    flex-direction: column;
-    align-items: stretch;
+  .table-card {
+    padding: 10px;
   }
-  
-  .search-input,
-  .date-picker {
-    width: 100%;
-    min-width: unset;
+
+  .orders-table {
+    overflow-x: auto;
   }
-  
+
+  .orders-table .ant-table-thead > tr > th {
+    font-size: 12px;
+  }
+
+  .orders-table .ant-table-tbody > tr > td {
+    font-size: 12px;
+  }
+
   .ant-space {
-    width: 100%;
+    flex-wrap: wrap;
   }
-  
-  .ant-drawer {
+
+  .status-select {
     width: 100% !important;
   }
 }
@@ -138,9 +83,5 @@
   .action-buttons {
     flex-direction: column;
     gap: 8px;
-  }
-  
-  .status-select {
-    width: 100% !important;
   }
 }
