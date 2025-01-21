@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { FaSearch, FaBell, FaUser } from 'react-icons/fa';
+import {useNavigate} from 'react-router-dom';
+import { FaSearch, FaBell, FaUser, FaUserPlus } from 'react-icons/fa';
 import './styles/header.css';
-import logo from 'gcr-logo-header.png';
 
 const Header = () => {
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
@@ -11,6 +11,8 @@ const Header = () => {
     { id: 2, message: 'Catalog update pending' }
   ]);
 
+  const navigate = useNavigate();
+
   const toggleProfileMenu = () => {
     setIsProfileMenuOpen(!isProfileMenuOpen);
   };
@@ -19,6 +21,11 @@ const Header = () => {
     e.preventDefault();
     // Implement search logic here
     console.log('Searching for:', searchQuery);
+  };
+
+  const handleNavigate=(route) => {
+    setIsProfileMenuOpen(false);
+    navigate(route);
   };
 
   return (
@@ -57,12 +64,21 @@ const Header = () => {
           </div>
         </div>
 
+         {/* Signup button*/}
+         <div className="signup-button">
+          <button onClick={() => handleNavigate('/signup')} className="signup-link">
+            <FaUserPlus className="signup-icon"/> Sign Up
+          </button>
+         </div>
+
+
         <div className="profile-menu">
           <button onClick={toggleProfileMenu} className="profile-button">
             <FaUser />
           </button>
           {isProfileMenuOpen && (
             <div className="profile-dropdown">
+              <a href="/profile">Profile</a>
               <a href="/settings">Settings</a>
               <a href="/support">Support</a>
               <a href="/logout">Logout</a>

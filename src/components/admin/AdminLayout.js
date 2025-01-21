@@ -9,6 +9,8 @@ import {
   BarChartOutlined,
   SettingOutlined,
   CustomerServiceOutlined,
+  UserAddOutlined,
+  UserOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
 } from '@ant-design/icons';
@@ -97,6 +99,16 @@ const AdminLayout = () => {
       icon: <CustomerServiceOutlined />,
       label: 'Support',
     },
+    {
+      key: '/signup',
+      icon: <UserAddOutlined />,
+    label: 'Sign Up',
+  },
+  {
+    key: '/profile',
+    icon: <UserOutlined />,
+    label: 'Profile',
+  },
   ];
 
   return (

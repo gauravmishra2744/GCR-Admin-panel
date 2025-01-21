@@ -1,0 +1,28 @@
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--background-color, #f0f2f5);
+  }
+  
+  .signup-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 24px;
+    border-radius: var(--border-radius, 8px);
+    box-shadow: var(--box-shadow, 0 4px 12px rgba(0, 0, 0, 0.1));
+    background-color: var(--background-primary, white);
+  }
+  
+  .signup-title {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .signup-button {
+    margin-top: 16px;
+  }
+  

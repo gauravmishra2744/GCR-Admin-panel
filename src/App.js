@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import { Spin } from 'antd';
 import ErrorBoundary from './ErrorBoundary';
 import AdminLayout from './components/admin/AdminLayout';
+import Signup from './components/admin/Signup';
+import Profile from './components/admin/Profile';
 import Home from './components/admin/Home';
 
 // Lazy load components for better performance
@@ -34,6 +36,8 @@ function App() {
             <Route path="reports" element={<Reports />} />
             <Route path="settings" element={<Settings />} />
             <Route path="support" element={<Support />} />
+            <Route path="signup" element={<Signup />} />
+            <Route path="profile" element={<Profile />} />
           </Route>
         </Routes>
       </Suspense>
